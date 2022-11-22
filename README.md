@@ -12,7 +12,11 @@ This is a backend API that returns to the user the country and country code by I
 
 ```bash
 git clone https://github.com/arist76/ip_location_lookup_api.git
+cd api
+python manage.py runserver
 ```
+
+Then read the end points below and try it out with curl and or postman
 
 
 ## Bin data file
