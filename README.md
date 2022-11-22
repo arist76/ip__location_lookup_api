@@ -11,7 +11,7 @@ This is a backend API that returns to the user the country and country code by I
 ## Installation
 
 ```bash
-git clone https://github.com/arist76/ip__location_lookup_api.git
+git clone https://github.com/arist76/ip_location_lookup_api.git
 ```
 
 
