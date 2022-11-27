@@ -1,23 +1,34 @@
-from django.shortcuts import render
-from .ip_lookup import IP
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
+from .ip import IP
+from .serializers import IPSerializer
+from django.core.exceptions import ObjectDoesNotExist
 
 @api_view(("GET",))
 def all(request, ip):
-    ip = IP(ip)
+    try:
+        ip_address = IP(ip)
+    except ValueError as err:
+        return Response({'error' : str(err)})
+    except ObjectDoesNotExist:
+        return Response({'error' : 'ip not found'})
 
-    return Response(ip.get_all())
+    serialized_ip = IPSerializer(ip_address)
+    return Response(serialized_ip.data)
 
 
 @api_view(("GET",))
 def unique(request, ip, key):
-    ip = IP(ip)
+    try:
+        ip_address = IP(ip)
+    except ValueError as err:
+        return Response({'error' : str(err)})
+    except ObjectDoesNotExist:
+        return Response({'error' : 'ip not found'})
 
-    response = ip.lookup.__dict__.get(
-        key,
-        "This parameter is unavailable in selected .BIN data file or it is Invalid. Either upgrade the data file or review your query.",
-    )
-
-    return Response({key: response})
+    serialized_ip = IPSerializer(ip_address)
+    try:
+        res = serialized_ip.data[key]
+    except KeyError:
+        return Response({'error' : 'invalid key'})
+    return Response(res)
