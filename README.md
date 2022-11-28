@@ -41,7 +41,7 @@ the response for the ip address in the above table. It uses the IP2Location™ L
 
 ```json
 {
-    "ip_address" : 16797952,
+    "ip_address" : "1.0.80.0",
     "ip_address_decimal" : 16798207,
     "country_code" : "JP",
     "country_name" : "Japan",
@@ -76,18 +76,20 @@ answer.
 
 #### Valid Unique Endpoints
 
-| Field           | Description                                 |
-| --------------- | --------------------------------------------|
-| country_long    | short country name                          |
-| country_code    | country code (2 letter, ISO 3166-1 alpha-2) |
-| region          | region name (administrative division)       |
-| city            | city name                                   |
-| isp             | name of internet service provider           |
-| latitude        | latitude coordinate location                |
-| longitude       | longitude coordinate location               |
-| domain_name     | domain name associated with the ip          |
-| zipcode         | zipcode of the address                      |
-| timezone        | timezone of the address                     |
+| Field              | Description                                           |
+| ---------------    | ------------------------------------------------------|
+| ip_address         | ip address with appropriate notaion for both versions |
+| ip_address_decimal | ip address in decimal notaion                         |
+| country_name       | short country name                                    |
+| country_code       | country code (2 letter, ISO 3166-1 alpha-2)           |
+| region             | region name (administrative division)                 |
+| city               | city name                                             |
+| isp                | name of internet service provider                     |
+| latitude           | latitude coordinate location                          |
+| longitude          | longitude coordinate location                         |
+| domain_name        | domain name associated with the ip                    |
+| zip_code           | zipcode of the address                                |
+| time_zone          | timezone of the address                               |
 
 ## Testing
 
