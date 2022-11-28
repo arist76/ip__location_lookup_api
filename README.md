@@ -41,17 +41,17 @@ the response for the ip address in the above table. It uses the IP2Location™ L
 
 ```json
 {
-    ip_address : 16797952,
-    ip_address_decimal : 16798207,
-    country_code : "JP",
-    country_name : "Japan",
-    region_name : "Yamaguchi",
-    city_name : "Hikari",
-    latitude : "33.961940",
-    longitude : "131.942220",
-    zip_code : "743-0021",
-    time_zone : "+09:00",
-    version : "4"
+    "ip_address" : 16797952,
+    "ip_address_decimal" : 16798207,
+    "country_code" : "JP",
+    "country_name" : "Japan",
+    "region_name" : "Yamaguchi",
+    "city_name" : "Hikari",
+    "latitude" : "33.961940",
+    "longitude" : "131.942220",
+    "zip_code" : "743-0021",
+    "time_zone" : "+09:00",
+    "version" : "4"
 }
 ```
 ### Complete Fields
