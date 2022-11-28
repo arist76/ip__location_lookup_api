@@ -1,6 +1,11 @@
 from rest_framework import serializers
 
+
 class IPSerializer(serializers.Serializer):
+    """
+    serializes the IP object
+    """
+
     ip_address = serializers.IPAddressField()
     ip_address_decimal = serializers.IntegerField()
     country_code = serializers.CharField(max_length=2)
@@ -13,5 +18,4 @@ class IPSerializer(serializers.Serializer):
     time_zone = serializers.CharField(max_length=8)
 
     class Meta:
-        read_only_fields = '__all__'
-
+        read_only_fields = "__all__"

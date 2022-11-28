@@ -1,7 +1,14 @@
 from django.db import models
 import ipaddress
 
+
 class IPModel(models.Model):
+    """
+    An abstract model to be inherited by IPv4Model and IPv6Model. the reason
+    for this is that the fields ip_from and ip_to are necessary to be
+    separated for both versions to make queries possible.
+    """
+
     ip_from = models.BigIntegerField(unique=True)
     ip_to = models.BigIntegerField(unique=True)
     country_code = models.CharField(max_length=2)
@@ -15,10 +22,14 @@ class IPModel(models.Model):
 
     class Meta:
         abstract = True
-        unique_together = [['ip_from', 'ip_to']]
+        unique_together = [["ip_from", "ip_to"]]
 
 
 class IPv4Model(IPModel):
+    """
+    Inherits from IPModel and represents IPv4 addresses
+    """
+
     version = models.CharField(max_length=1, default=6)
 
     def __str__(self) -> str:
@@ -27,6 +38,10 @@ class IPv4Model(IPModel):
 
 
 class IPv6Model(IPModel):
+    """
+    Inherits from IPModel and represents IPv6 addresses
+    """
+
     version = models.CharField(max_length=1, default=4)
 
     def __str__(self) -> str:
