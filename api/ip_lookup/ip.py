@@ -24,7 +24,7 @@ class IP:
 
         self.ip_address = ip.exploded
 
-        dict_remove = ["ip_from", "ip_to", "_state", "id"]
+        dict_remove = ["ip_from", "ip_to", "_state"]
         for each in dict_remove:
             ip_model_dict.pop(each)
 

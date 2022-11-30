@@ -30,8 +30,6 @@ class IPv4Model(IPModel):
     Inherits from IPModel and represents IPv4 addresses
     """
 
-    version = models.CharField(max_length=1, default=6)
-
     def __str__(self) -> str:
         super().__str__()
         return f"Range['{str(ipaddress.IPv4Address(self.ip_from))}' : '{str(ipaddress.IPv4Address(self.ip_to))}']"
@@ -41,8 +39,6 @@ class IPv6Model(IPModel):
     """
     Inherits from IPModel and represents IPv6 addresses
     """
-
-    version = models.CharField(max_length=1, default=4)
 
     def __str__(self) -> str:
         super().__str__()

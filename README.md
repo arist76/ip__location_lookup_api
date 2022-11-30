@@ -25,7 +25,7 @@ Then read the end points below and try it out with curl or postman
 #### Http Request
 
 ```
-http://127.0.0.1:8000/lookup/all/{ip_address}
+http://127.0.0.1:8000/{ip_address}
 ```
 
 #### Parameters
@@ -51,7 +51,6 @@ the response for the ip address in the above table. It uses the IP2Location™ L
     "longitude" : "131.942220",
     "zip_code" : "743-0021",
     "time_zone" : "+09:00",
-    "version" : "4"
 }
 ```
 ### Complete Fields
@@ -59,7 +58,7 @@ the response for the ip address in the above table. It uses the IP2Location™ L
 #### Http Request
 
 ```
-http://127.0.0.1:8000/lookup/unique/{ip_address}/{field}
+http://127.0.0.1:8000/{ip_address}/{field}
 ```
 
 #### Parameters
