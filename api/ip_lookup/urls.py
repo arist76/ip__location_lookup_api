@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import all, unique
+from .views import all_view, unique_view
 
 urlpatterns = [
-    path("all/<str:ip>/", all, name='all'),
-    path("unique/<str:ip>/<str:key>/", unique, name='unique'),
+    path("<str:ip>", all_view, name="all"),
+    path("<str:ip>/<str:key>", unique_view, name="unique"),
 ]
