@@ -29,10 +29,14 @@ if DEBUG:
 
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "ip_lookup_db",
+            "USER": "postgres",
+            "PASSWORD": "123456789",
+            "PORT": 5432,
         }
     }
+
 else:
     SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
