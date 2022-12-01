@@ -7,7 +7,14 @@ from rest_framework import status
 
 
 @api_view(("GET",))
-def all_view(request, ip):
+def full_ip_location_data_endpoint(request, ip):
+    """
+    returns a json file containing the full locational details of
+    the ip address
+    Arguments
+    ---------
+    ip - the ip address to be queried
+    """
     try:
         ip_address = IP(ip)
     except ValueError as err:
@@ -22,7 +29,14 @@ def all_view(request, ip):
 
 
 @api_view(("GET",))
-def unique_view(request, ip, key):
+def unique_ip_location_data_endpoint(request, ip, key):
+    """
+    returns unique detail per key for the ip address requested
+    Arguments
+    ----------
+    ip - the ipaddress to be queried from the database
+    key - the unique data to be returned
+    """
     try:
         ip_address = IP(ip)
     except ValueError as err:
