@@ -34,7 +34,7 @@ class IPv4Model(IPModel):
 
     def __str__(self) -> str:
         super().__str__()
-        return f"Range['{str(ipaddress.IPv4Address(self.ip_from))}' : '{str(ipaddress.IPv4Address(self.ip_to))}']"
+        return f"Range['{str(ipaddress.IPv4Address(int(self.ip_from)))}' : '{str(ipaddress.IPv4Address(int(self.ip_to)))}']"
 
 
 class IPv6Model(IPModel):
@@ -44,4 +44,4 @@ class IPv6Model(IPModel):
 
     def __str__(self) -> str:
         super().__str__()
-        return f"Range['{ipaddress.IPv6Address(self.ip_from).exploded}' : '{ipaddress.IPv6Address(self.ip_to).exploded}']"
+        return f"Range['{ipaddress.IPv6Address(int(self.ip_from)).exploded}' : '{ipaddress.IPv6Address(int(self.ip_to)).exploded}']"
