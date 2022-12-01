@@ -9,8 +9,10 @@ class IPModel(models.Model):
     separated for both versions to make queries possible.
     """
 
-    ip_from = models.BigIntegerField(unique=True, primary_key=True)
-    ip_to = models.BigIntegerField(unique=True)
+    ip_from = models.DecimalField(
+        max_digits=40, decimal_places=0, unique=True, primary_key=True
+    )
+    ip_to = models.DecimalField(max_digits=40, decimal_places=0, unique=True)
     country_code = models.CharField(max_length=2)
     country_name = models.CharField(max_length=64)
     region_name = models.CharField(max_length=128)
