@@ -4,8 +4,6 @@ venv/
 data/
 
 .dockerignore
-Dockerfile
-docker-compose.yml
 .env
 
 .vscode/
