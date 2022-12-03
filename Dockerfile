@@ -12,7 +12,7 @@ COPY . .
 
 RUN python3 api/manage.py makemigrations
 RUN python3 api/manage.py migrate
-RUN python3 api/manage.py copy
+RUN python3 api/manage.py import_csv copy
 
 CMD ["python3", "api/manage.py", "runserver", "0.0.0.0:8000"]
 
