@@ -1,6 +1,6 @@
 __pycache__/
 db.sqlite3
-venv/
+ip_lookup_env/
 data/
 
 .dockerignore
