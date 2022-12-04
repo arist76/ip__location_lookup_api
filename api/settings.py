@@ -23,6 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+for each in os.environ.keys():
+    print(each)
+print(os.environ["DJANGO_SETTINGS_MODULE"])
+
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
     SECRET_KEY = "django-insecure-dav1-q^q%1mhy4eky4sn8&62_&o*+f5=a#a+b4n@$zjo)02&1="
