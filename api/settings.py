@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
@@ -43,9 +43,9 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.environ.get("POSTGRES_NAME"),
-            "USER": os.environ.get("POSTGRES_USER"),
-            "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+            "NAME": os.environ["POSTGRES_NAME"],
+            "USER": os.environ["POSTGRES_USER"],
+            "PASSWORD": os.environ["POSTGRES_PASSWORD"],
             "HOST": "db",
             "PORT": 5432,
         }
