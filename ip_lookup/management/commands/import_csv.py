@@ -89,7 +89,7 @@ class Command(BaseCommand):
         with connection.cursor() as cursor:
             table = "ip_lookup_ipv4model" if version == 4 else "ip_lookup_ipv6model"
             cursor.execute(
-                f"COPY {table}(ip_from,ip_to,country_code, country_name, region_name, city_name, latitude, longitude, zip_code, time_zone) FROM '{path}' DELIMITER ',' CSV;",
+                f"\copy {table} FROM '{path}' DELIMITER ',' CSV;",
                 [table, path],
             )
 

@@ -23,9 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-for each in os.environ.keys():
-    print(each)
-print(os.environ["DJANGO_SETTINGS_MODULE"])
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
@@ -43,11 +40,12 @@ if DEBUG:
 
 else:
     SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+    # SECRET_KEY = "django-insecure-dav1-q^q%1mhy4eky4sn8&62_&o*+f5=a#a+b4n@$zjo)02&1="
 
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.environ["POSTGRES_NAME"],
+            "NAME": os.environ["POSTGRES_USER"],
             "USER": os.environ["POSTGRES_USER"],
             "PASSWORD": os.environ["POSTGRES_PASSWORD"],
             "HOST": "db",
@@ -55,7 +53,7 @@ else:
         }
     }
 
-ALLOWED_HOSTS = ["testserver", "127.0.0.1", "[::1]"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -150,3 +148,5 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.JSONRenderer",
     ]
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
