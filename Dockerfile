@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.10.6
 WORKDIR /application_root
 
 ENV PYTHONDONTWRITEBYTECODE=1
