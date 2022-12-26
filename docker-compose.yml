@@ -31,6 +31,9 @@ services:
       - ./nginx_configuration/:/etc/nginx/conf.d/
       - static:/static:ro
 
+  redis:
+    image: redis
+
 volumes:
   dbdata:
   static:

@@ -27,31 +27,30 @@ DEBUG = False
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
     SECRET_KEY = "django-insecure-dav1-q^q%1mhy4eky4sn8&62_&o*+f5=a#a+b4n@$zjo)02&1="
-
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "ip_lookup_db",
-            "USER": "postgres",
-            "PASSWORD": "123456789",
-            "PORT": 5432,
-        }
-    }
+    __POSTGRES_DB = "ip_lookup_db"
+    __POSTGRES_USER = "postgres"
+    __POSTGRES_PASSWORD = 123456789
+    __POSTGRES_HOST = "127.0.0.1"
+    REDIS_HOST = "127.0.0.1"
 
 else:
     SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
-    # SECRET_KEY = "django-insecure-dav1-q^q%1mhy4eky4sn8&62_&o*+f5=a#a+b4n@$zjo)02&1="
+    __POSTGRES_DB = os.environ["POSTGRES_DB"]
+    __POSTGRES_USER = os.environ["POSTGRES_USER"]
+    __POSTGRES_PASSWORD = os.environ["POSTGRES_PASSWORD"]
+    __POSTGRES_HOST = "db"
+    REDIS_HOST = "redis"
 
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.environ["POSTGRES_DB"],
-            "USER": os.environ["POSTGRES_USER"],
-            "PASSWORD": os.environ["POSTGRES_PASSWORD"],
-            "HOST": "db",
-            "PORT": 5432,
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": __POSTGRES_DB,
+        "USER": __POSTGRES_USER,
+        "PASSWORD": __POSTGRES_PASSWORD,
+        "HOST": __POSTGRES_HOST,
+        "PORT": 5432,
     }
+}
 
 ALLOWED_HOSTS = ["*"]
 
@@ -150,3 +149,11 @@ REST_FRAMEWORK = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": f"redis://{REDIS_HOST}:6379",
+    }
+}

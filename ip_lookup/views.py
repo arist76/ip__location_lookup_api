@@ -4,9 +4,11 @@ from .ip import IP
 from .serializers import IPSerializer
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import status
+from django.views.decorators.cache import cache_page
 
 
 @api_view(("GET",))
+@cache_page(60 * 60)
 def full_ip_location_data_endpoint(request, ip):
     """
     returns a json file containing the full locational details of
@@ -29,6 +31,7 @@ def full_ip_location_data_endpoint(request, ip):
 
 
 @api_view(("GET",))
+@cache_page(60 * 60)
 def unique_ip_location_data_endpoint(request, ip, key):
     """
     returns unique detail per key for the ip address requested

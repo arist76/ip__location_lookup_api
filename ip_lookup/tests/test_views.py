@@ -1,7 +1,9 @@
 from django.test import TestCase, Client
 from ..models import IPv4Model, IPv6Model
 from django.urls import reverse
+from api.settings import REDIS_HOST
 import ipaddress
+import redis
 
 
 class TestViews(TestCase):
@@ -48,6 +50,14 @@ class TestViews(TestCase):
             "zip_code",
             "time_zone",
         ]
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        super().tearDownClass()
+
+        redis_client = redis.Redis(host=REDIS_HOST, port=6379)
+        print(redis_client.ping())
+        redis_client.flushall()
 
     def setUp(self) -> None:
         self.client = Client()
