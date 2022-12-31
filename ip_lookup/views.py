@@ -11,10 +11,11 @@ from django.views.decorators.cache import cache_page
 @cache_page(60 * 60)
 def full_ip_location_data_endpoint(request, ip):
     """
-    returns a json file containing the full locational details of
+    returns a json object containing the full locational details of
     the ip address
+
     Arguments
-    ---------
+    ----------
     ip - the ip address to be queried
     """
     try:
@@ -35,6 +36,7 @@ def full_ip_location_data_endpoint(request, ip):
 def unique_ip_location_data_endpoint(request, ip, key):
     """
     returns unique detail per key for the ip address requested
+
     Arguments
     ----------
     ip - the ipaddress to be queried from the database
