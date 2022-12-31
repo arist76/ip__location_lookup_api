@@ -16,8 +16,6 @@ cd ip_location_lookup_api/api
 python3 manage.py runserver
 ```
 
-Then read the end points below and try it out with curl or postman
-
 ## Endpoints
 
 ### Complete Fields
@@ -32,7 +30,7 @@ http://127.0.0.1:8000/{ip_address}
 
 | Parameter       | Description                                               | Example                                    |
 | --------------- | ------------                                              | -------------------------------------------|
-| ip_address      | An IP address for which you want to retrieve the location | http://127.0.0.1:8000/lookup/all/112.1.2.1 |
+| ip_address      | An IP address for which you want to retrieve the location | http://127.0.0.1:8000/ip-lookup/112.1.2.1 |
 
 #### Http Response
 
@@ -65,8 +63,8 @@ http://127.0.0.1:8000/{ip_address}/{field}
 
 | Parameter       | Description                                               | Example                                                    |
 | --------------- | ------------                                              | -----------------------------------------------------------|
-| ip_address      | An IP address for which you want to retrieve the location | http://127.0.0.1:8000/lookup/all/112.1.2.1                 |
-| field           | The unique field of the ip address                        | http://127.0.0.1:8000/lookup/unique/112.1.2.1/country_code |
+| ip_address      | An IP address for which you want to retrieve the location | http://127.0.0.1:8000/ip-lookup/112.1.2.1                  |
+| field           | The unique field of the ip address                        | http://127.0.0.1:8000/ip-lookup/112.1.2.1/country_code     |
 
 #### Http Response
 
